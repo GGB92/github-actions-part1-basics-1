@@ -1,0 +1,28 @@
+-----------------------------------------------------
+Github part 1 basic
+-----------------------------------------------------
+name: My-github-actions-basics
+
+on: 
+  push: 
+     branches:
+        - master
+
+
+
+jobs: 
+  my_testing:
+      runs-on: [ubuntu-latest]
+       
+      steps: 
+        - name: Print nice massage ftom test Job
+          run : echo "Hello World from Test!"
+   my_deploy:
+      runs-on: [ubuntu-latest]
+       
+      steps: 
+        - name: Print nice massage from deploy Job
+          run : echo "Hello World from Deploy!"
+            
+     
+
