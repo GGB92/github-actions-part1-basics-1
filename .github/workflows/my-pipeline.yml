@@ -70,7 +70,7 @@ jobs:
         env:
           LOCAL_VAR1: "Hello. Im local variable"
       - name: Check if command exist
-        run : AWS --version
+        run : aws --version
       
       - name: Check if ZIP exist
         run : zip --version
