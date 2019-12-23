@@ -1,39 +1,47 @@
-#-----------------------------------------------------
-#Github part 1 basics
-#-----------------------------------------------------
-name: My-github-actions-basics
+#---------------------------------------------------------------------
+# GitHub Action Workflow Basics
+#
+# Version      Date        Info
+# 1.0          2019        Initial Version
+#
+# Made by Denis Astahov ADV-IT Copyleft (c) 2019
+#---------------------------------------------------------------------
+name: My-GitHubActions-Basics
+
 
 on: 
-  push: 
-     branches:
-        - master
+  push:
+    branches: 
+      - master
 
 
-
-jobs: 
+jobs:
   my_testing:
-      runs-on: [ubuntu-latest]
-       
-      steps: 
-        - name: Print nice massage ftom test Job
-          run : echo "Hello World from Test!"
-          
-        - name: Execute some commands
-          run : |
-            echo "Hello massage 1"
-            echo "Hello massage 2"
-            
-   my_deploy: 
-      runs-on: [ubuntu-latest]
-      need: [my_testing]
-       
-      steps: 
-        - name: Print nice massage from deploy Job
-          run : echo "Hello World from Deploy!"
-          
-        - name: List current folder
-          run : ls -la
-        
-        
-     
+    runs-on: [ubuntu-latest]
+    
+    steps:
+      - name: Print nice message from Testing Job
+        run : echo "Hello World from Test"
 
+      - name: Execute few commands
+        run : |
+          echo "Hello Message1"
+          echo "Hello Message2"
+   
+      - name: List current folder
+        run : ls -la
+
+
+
+  my_deploy:
+    runs-on: [ubuntu-latest]
+    needs: [my_testing]      
+    
+    steps:
+      - name: Print nice message from Deploy Job
+        run : echo "Hello World from Deploy"
+      
+      - name: List current folder
+        run : ls -la
+
+    
