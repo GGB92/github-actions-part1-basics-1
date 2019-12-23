@@ -8,7 +8,7 @@
 #---------------------------------------------------------------------
 name: My-GitHubActions-Basics
 env: 
-  Aplication name     : "MyNewGGBApp"
+  Aplication_name     : "MyNewGGBApp"
   Deploy_Package_Name : "GGB_version_1.0-${{ github.sha }}"
 
 
@@ -59,7 +59,7 @@ jobs:
         run : ls -l
       
       - name: Printing some info
-        run: echo "Printing global env variable ${{ env.Aplication name }}"
+        run: echo "Printing global env variable ${{ env.Aplication_name }}"
       
       - name: Printing more some info
         run: |
