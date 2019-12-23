@@ -17,12 +17,23 @@ jobs:
       steps: 
         - name: Print nice massage ftom test Job
           run : echo "Hello World from Test!"
-   my_deploy:
+          
+        - name: Execute some commands
+          run : |
+            echo "Hello massage 1"
+            echo "Hello massage 2"
+            
+   my_deploy: 
       runs-on: [ubuntu-latest]
+      need: [my_testing]
        
       steps: 
         - name: Print nice massage from deploy Job
           run : echo "Hello World from Deploy!"
-            
+          
+        - name: List current folder
+          run : ls -la
+        
+        
      
 
