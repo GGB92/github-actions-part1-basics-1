@@ -7,6 +7,9 @@
 # Made by Denis Astahov ADV-IT Copyleft (c) 2019
 #---------------------------------------------------------------------
 name: My-GitHubActions-Basics
+env: 
+  Aplication name     : "MyNewGGBApp"
+  Deploy_Package_Name : "GGB_version_1.0-${{ github.sha }}"
 
 
 on: 
@@ -27,6 +30,7 @@ jobs:
         run : |
           echo "Hello Message1"
           echo "Hello Message2"
+          echo "Printing global env variable ${{ env.Deploy_Package_Name }}"
           
       - name: List current folder
         run : ls -la
@@ -52,6 +56,19 @@ jobs:
         run : echo "Hello World from Deploy"
       
       - name: List current folder
-        run : ls -la
+        run : ls -l
+      
+      - name: Printing some info
+        run: echo "Printing global env variable ${{ env.Aplication name }}"
+      
+      - name: Printing more some info
+        run: |
+          echo "Var1 =  ${{ env.VAR1 }}"
+          echo "Var2 =  ${{ env.VAR2 }}"
+      - name: Printing super local env vars
+        run: echo "This is local variable $LOCAL_VAR1"
+        env:
+          LOCAL_VAR1: "Hello. Im local variable"
+    
 
      
